@@ -1,6 +1,10 @@
 const express = require('express')
 const router = express.Router();
+const file = require('../../middleaware/file')
 const BloodBank = require('../../models/blood_bank')
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
+
 
 // @route    GET /blood_bank
 // @desc     LIST blood banks
