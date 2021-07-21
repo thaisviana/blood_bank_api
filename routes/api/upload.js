@@ -13,7 +13,7 @@ var upload = multer({ dest: 'uploads/' })
 // @access   Public
 router.post('/', upload.single('doc'),  file,  async (req, res, next) => {
     try {
-      const result = await get_dates(req.body.Location)
+      const result = await get_dates(req.body.file_url)
       req.body.first_date = result[0]
       req.body.last_date = result[1]
       res.json(req.body)

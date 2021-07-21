@@ -8,6 +8,7 @@ function get_dtInfo(datestr) {
 }
 
 async function get_dates(path) {
+    console.log(path)
     const arr = await get_csv_content(path)
     if (arr) {
         const arr_size = arr.length

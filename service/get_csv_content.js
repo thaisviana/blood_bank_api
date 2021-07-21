@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 
 async function get_csv_content(path) {
     try {
+        console.log(path)
         const res = await fetch(path, {
             method: 'get',
             headers: {
