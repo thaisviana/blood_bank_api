@@ -9,6 +9,14 @@ const BloodBankSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    author_name:{
+        type : String,
+        required : true
+    },
+    author_email:{
+        type : String,
+        required : true
+    },
     country : {
       type : String,
       required : true
@@ -24,7 +32,15 @@ const BloodBankSchema = new mongoose.Schema({
     last_date: {
         type: Date,
         required : false
-    }, 
+    },
+    official_request: {
+        type: Boolean,
+        required : false
+    },
+    approved_status: {
+        type: Boolean,
+        required : false
+    },  
     donation_campaign  : [
         {
             first_date: {
@@ -37,6 +53,30 @@ const BloodBankSchema = new mongoose.Schema({
             }, 
         }
     ],
+    holidays  : [
+        {
+            first_date: {
+                type: Date,
+                required : false
+            },
+            last_date: {
+                type: Date,
+                required : false
+            }, 
+        }
+    ],
+    forecast_files: [
+        {
+            name : {
+                type : String,
+                required : false
+            },
+            file_url : {
+                type : String,
+                required : true
+            }
+        }
+    ]
 
 }, { autoCreate : true })
 BloodBankSchema.index({'$**': 'text'});

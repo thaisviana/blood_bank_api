@@ -21,6 +21,7 @@ app.use(fileUpload({
 
 app.get('/', (req, res) => res.send('Hello!'))
 app.use('/blood_bank', require('./routes/api/blood_bank'))
+app.use('/forecast', require('./routes/api/forecast'))
 app.use('/upload', require('./routes/api/upload'))
 
 const server = app.listen(PORT, () => { console.log(`port ${PORT}`) })
