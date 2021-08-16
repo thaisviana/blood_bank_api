@@ -12,7 +12,11 @@ router.get('/', async (req, res, next) => {
         const blood_banks = await BloodBank.find()
         for (let b of blood_banks){
           let name = `forecast_${getLastItem(b.file_url)}`
-          b.forecast_files = [{name: name, file_url : `${process.env.BUCKET_PUBLIC_PATH}forecast/${name}` }]
+          let name2 = `forecast_model2_${getLastItem(b.file_url)}`
+          b.forecast_files = [
+            {name: name, file_url : `${process.env.BUCKET_PUBLIC_PATH}forecast/${name}` },
+            {name: name2, file_url : `${process.env.BUCKET_PUBLIC_PATH}forecast/${name2}` },
+          ]
         }
         res.json(blood_banks)
     } catch (err) {
