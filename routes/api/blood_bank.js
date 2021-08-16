@@ -8,7 +8,12 @@ const BloodBank = require('../../models/blood_bank')
 // @access   Public
 router.get('/', async (req, res, next) => {
     try {
+        const getLastItem = thePath => thePath.substring(thePath.lastIndexOf('/') + 1)
         const blood_banks = await BloodBank.find()
+        for (let b of blood_banks){
+          let name = `forecast_${getLastItem(b.file_url)}`
+          b.forecast_files = [{name: name, file_url : `${process.env.BUCKET_PUBLIC_PATH}forecast/${name}` }]
+        }
         res.json(blood_banks)
     } catch (err) {
       console.error(err.message)
