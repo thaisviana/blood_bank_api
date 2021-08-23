@@ -11,11 +11,11 @@ const BloodBankSchema = new mongoose.Schema({
     },
     author_name:{
         type : String,
-        required : true
+        required : false
     },
     author_email:{
         type : String,
-        required : true
+        required : false
     },
     country : {
       type : String,
